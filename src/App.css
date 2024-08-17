@@ -1,38 +1,182 @@
-.App {
-  text-align: center;
+body{
+  width: 100%;
+  margin: 0 auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+li{
+  list-style: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a{
+  text-decoration: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*Navigation bar*/
+
+.navbar{
+  padding: 10px 13%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul li{
+  display: inline-block;
+  padding: 1rem;
+}
+
+nav ul li a{
+  color: black;
+}
+
+nav ul li a:hover{
+  color: #495e57;
+  text-decoration: underline solid #495e57;
+}
+
+.hamburger-icon{
+  display: none;
+}
+
+.visible {
+  flex-direction: column;
+  position: absolute;
+  top: 48px;
+  right: 0;
+  width: 30%;
+  background-color: #495E57;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  transition: all 0.3s ease-in-out;
+}
+
+/*Header*/
+header {
+  background-color: #495e57;
+  padding: 40px 0;
+}
+
+header section {
+  position: relative;
+  padding: 10px 13%;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+header section div h1{
+  color: #f4ce14;
+  font-size: 64px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+header section div h2{
+  font-size: 40px;
+}
+
+header section div p{
+  font-size: 18px;
+  max-width: 520px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+header section div img {
+  position: absolute;
+  right: 13%;
+  top: 15%;
+  width: 35rem;
+  height: 35rem;
+  border-radius: 16px;
+}
+
+button{
+  background-color: #f4ce14;
+  color: black;
+  border: none;
+  border-radius: 16px;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 14px 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/*Footer*/
+footer section{
+  display: flex;
+  padding: 10px 13%;
+  justify-content: space-between;
+}
+
+footer div{
+  flex: 1;
+}
+
+footer ul{
+  padding: 0;
+}
+footer ul li a{
+  text-decoration: none;
+  color: black;
+}
+
+footer ul li a:hover{
+  color: #495e57;
+  text-decoration: underline solid #495e57;
+}
+
+footer div img{
+  margin-top: 10%;
+  width: 5rem;
+}
+
+/*Responsive*/
+
+@media screen and (max-width: 1440px) {
+  header section div img {
+    right: 13%;
+    top: 25%;
+    width: 15rem;
+    height: 15rem;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media screen and (max-width: 982px) {
+  header section div img {
+    margin-top: 10%;
+    position: static;
+  }
+
+  .hamburger-icon{
+    display: block;
+  }
+
+  .hamburger-nav{
+    display: none;
+  }
+
+  nav ul{
+    display: none;
+  }
+
+  nav ul li a{
+    color: white;
+  }
+
+  .visible {
+    display: flex;
+    background: white;
+    color: #495e57;
+    padding: 20px 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .visible li a {
+    display: flex;
+    color: #495e57;
+    transition: all 0.3s ease-in-out;
+  }
+  footer section{
+    padding: 10px 8%;
+    flex-direction: column;
   }
 }
