@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import logo_alt from '../images/Asset 20@4x.png';
 
 const handleClick = (anchor) => () => {
@@ -23,16 +24,16 @@ const Footer = () => {
                     <h3>Navigation</h3>
                     <ul>
                         <li>
-                            <a href="/App">Home</a>
+                            <a href="/">Home</a>
                         </li>
                         <li>
-                            <a href="#about" onClick={handleClick("about")}>About</a>
+                            <a href="about" onClick={handleClick("about")}>About</a>
                         </li>
                         <li>
                             <a href="/">Menu</a>
                         </li>
                         <li>
-                            <a href="/">Reservations</a>
+                            <Link to="/booking">Reservations</Link>
                         </li>
                         <li>
                             <a href="/">Order Online</a>

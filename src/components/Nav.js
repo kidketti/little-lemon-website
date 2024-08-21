@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
 import logo from '../images/Logo .svg';
 import hamburger from '../images/icon _hamburger menu.svg';
 
@@ -22,12 +23,12 @@ const Nav = () => {
 
     return (
         <nav className={`navbar ${navDisplay ? "open" : ""}`}>
-            <a href="App.js">
+            <Link to="/">
                 <img src={logo} alt="Little Lemon Logo" />
-            </a>
+            </Link>
             <ul className={`navlink ${navDisplay ? "visible" : ""}`}>
                 <li>
-                    <a href="App.js">Home</a>
+                    <Link to="/">Home</Link>
                 </li>
                 <li>
                     <a href="#about" onClick={handleClick("about")}>About</a>
@@ -36,7 +37,7 @@ const Nav = () => {
                     <a href="/">Menu</a>
                 </li>
                 <li>
-                    <a href="/">Reservations</a>
+                    <Link to="/booking">Reservations</Link>
                 </li>
                 <li>
                     <a href="/">Order Online</a>

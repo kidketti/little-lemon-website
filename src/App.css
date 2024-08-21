@@ -31,7 +31,7 @@ nav ul li a{
 
 nav ul li a:hover{
   color: #495e57;
-  text-decoration: underline solid #495e57;
+  text-decoration: underline solid #495E57;
 }
 
 .hamburger-icon{
@@ -39,56 +39,54 @@ nav ul li a:hover{
 }
 
 .visible {
+  display: flex;
   flex-direction: column;
   position: absolute;
   top: 48px;
   right: 0;
   width: 30%;
   background-color: #495E57;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   transition: all 0.3s ease-in-out;
 }
 
-/*Header*/
-header {
-  background-color: #495e57;
-  padding: 40px 0;
+/*Header for home page*/
+.header {
+  background-color: #495E57;
+  padding-bottom: 75px;
 }
 
-header section {
+.header section {
   position: relative;
   padding: 10px 13%;
   color: white;
 }
 
-header section div h1{
+.header section div h1{
   color: #f4ce14;
   font-size: 64px;
 }
 
-header section div h2{
+.header section div h2{
   font-size: 40px;
 }
 
-header section div p{
+.header section div p{
   font-size: 18px;
   max-width: 520px;
-  line-height: 1.5;
   margin-bottom: 30px;
 }
 
-header section div img {
+.header section div img {
   position: absolute;
   right: 13%;
   top: 15%;
-  width: 35rem;
-  height: 35rem;
+  width: 30rem;
+  height: 32rem;
   border-radius: 16px;
 }
 
-button{
+.mainBtn{
   background-color: #f4ce14;
   color: black;
   border: none;
@@ -100,7 +98,105 @@ button{
   cursor: pointer;
 }
 
+.mainBtn:hover{
+  background-color: white;
+  color: #495E57;
+}
+
+/*Highlights*/
+.highlights{
+  margin-top: 10%;
+}
+
+.highlights-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 13%;
+}
+
+.altBtn{
+  background-color: #f4ce14;
+  color: black;
+  border: none;
+  border-radius: 16px;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 14px 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.altBtn:hover{
+  background-color: #495E57;
+  color: white;
+}
+
+.highlights-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 13%;
+}
+
+.highlights-content .card{
+  background-color: #EDEFEE;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  margin-bottom: 10%;
+  max-width: 400px;
+}
+
+.highlights-content img{
+  width: 400px;
+  height: 285px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.content-heading {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5%;
+}
+
+.content-heading #price{
+  color: #EE9972;
+}
+
+.content-description{
+  justify-content: space-between;
+  padding: 0 5%;
+}
+
+.content-description button{
+  justify-content: space-between;
+  padding: 5% 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.deliveryBtn{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.deliveryBtn:hover{
+  color: #495e57;
+  text-decoration: underline solid #495E57;
+}
+
+/*Testimonials*/
+.testimonials{
+  background-color: #EDEFEE;
+}
+
 /*Footer*/
+footer{
+  background-color: #EDEFEE;
+}
+
 footer section{
   display: flex;
   padding: 10px 13%;
@@ -120,8 +216,8 @@ footer ul li a{
 }
 
 footer ul li a:hover{
-  color: #495e57;
-  text-decoration: underline solid #495e57;
+  color: #495E57;
+  text-decoration: underline solid #495E57;
 }
 
 footer div img{
@@ -129,19 +225,53 @@ footer div img{
   width: 5rem;
 }
 
+/*Form*/
+form{
+  display: grid;
+  max-width: 200px;
+  gap: 20px;
+}
+
+fieldset{
+  outline: none;
+  border: 0;
+  box-shadow: none;
+}
+
+.submitBtn{
+  background-color: #f4ce14;
+  color: black;
+  border: none;
+  border-radius: 16px;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 14px 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submitBtn:hover{
+  background-color: #495E57;
+  color: white;
+}
+
 /*Responsive*/
 
-@media screen and (max-width: 1440px) {
-  header section div img {
+@media screen and (max-width: 1360px) {
+  .header section div img {
     right: 13%;
     top: 25%;
     width: 15rem;
     height: 15rem;
   }
+
+  .highlights-content{
+    flex-direction: column;
+  }
 }
 
 @media screen and (max-width: 982px) {
-  header section div img {
+  .header section div img {
     margin-top: 10%;
     position: static;
   }
