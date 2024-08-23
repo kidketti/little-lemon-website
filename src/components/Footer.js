@@ -27,7 +27,7 @@ const Footer = () => {
                             <a href="/">Home</a>
                         </li>
                         <li>
-                            <a href="about" onClick={handleClick("about")}>About</a>
+                            <Link to="#about" onClick={handleClick("about")}>About</Link>
                         </li>
                         <li>
                             <a href="/">Menu</a>
@@ -55,13 +55,13 @@ const Footer = () => {
                     <h3>Social Media</h3>
                     <ul>
                         <li>
-                            <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+                            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
                         </li>
                         <li>
-                            <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+                            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
                         </li>
                         <li>
-                            <a href="https://x.com/" target="_blank">Twitter (X)</a>
+                            <a href="https://x.com/" target="_blank" rel="noopener noreferrer">Twitter (X)</a>
                         </li>
                     </ul>
                 </div>

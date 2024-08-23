@@ -1,13 +1,19 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 
 const ConfirmedBooking = () => {
     return(
-        <div className="confirm">
+        <section className="message">
             <div>
-                <h1>Booking has been <span>confirmed!</span></h1>
+                <h2>You've successfully submitted a reservation for a table at Little Lemon!</h2>
             </div>
-        </div>
-
+            <div>
+                <p>We will contact you about your reservation as soon as we can!</p>
+            </div>
+            <Link to="/">
+                <button id="okBtn">OK</button>
+            </Link>
+        </section>
     );
 };
 
