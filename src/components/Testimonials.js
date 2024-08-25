@@ -66,10 +66,10 @@ const Testimonials = () => {
     ]
 
     return (
-        <div className="testimonials">
-            <div className="testimonials-heading">
+        <main className="testimonials">
+            <header className="testimonials-heading">
                 <h1>Testimonials</h1>
-            </div>
+            </header>
             <div className="testimonials-content">
                 {
                     reviews.map((person) => (
@@ -89,7 +89,7 @@ const Testimonials = () => {
                     ))
                 }
             </div>
-        </div>
+        </main>
     );
 };
 

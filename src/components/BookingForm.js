@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const BookingForm = (props) => {
     const [firstName, setFirstName] = useState("");
-    const [firstNameError, setFirstNameError] = useState("");
+    const [lastName, setLastName] = useState("");
     const [contactMethod, setContactMethod] = useState("");
     const [contactInfo, setContactInfo] = useState("");
     const [date, setDate] = useState("");
@@ -25,25 +25,17 @@ const BookingForm = (props) => {
         props.submitForm(e);
     }
 
-    const handleFirstName = (e) => {
-        if (e.target.name === "firstName") {
-            if (e.target.value.trim() === "") {
-                setFirstNameError("Required");
-            } else {
-                setFirstNameError("");
-            }
-        }
-    }
-
     return (
-        <header>
+        <main>
             <section className="formContent">
-                <h1>RESERVE A TABLE</h1>
+                <header>
+                    <h1>RESERVE A TABLE</h1>
+                </header>
                 <form onSubmit={handleSubmit}>
                     <fieldset>
                         <div className="rows">
                             <div>
-                                <label htmlFor="firstName">First Name<span className="required">*</span></label>
+                                <label htmlFor="firstName">First Name <span className="required">*</span></label>
                                 <input
                                     type="text"
                                     id="firstName"
@@ -51,25 +43,25 @@ const BookingForm = (props) => {
                                     placeholder="ex. John"
                                     value={firstName}
                                     onChange={(e) => setFirstName(e.target.value)}
-                                    onBlur={handleFirstName}
                                     required
                                 />
-                                {firstNameError && <span className="error">{firstNameError}</span>}
                             </div>
                             <div>
-                                <label htmlFor="lastName">Last Name<span className="required">*</span></label>
+                                <label htmlFor="lastName">Last Name <span className="required">*</span></label>
                                 <input
                                     type="text"
                                     id="lastName"
                                     name="lastName"
                                     placeholder="ex. Doe"
+                                    value={lastName}
+                                    onChange={(e) => setLastName(e.target.value)}
                                     required
                                 />
                             </div>
                         </div>
                         <div className="rows">
                             <div>
-                                <label htmlFor="contactMethod">Form of Contact<span className="required">*</span></label>
+                                <label htmlFor="contactMethod">Form of Contact <span className="required">*</span></label>
                                 <select
                                     id="contactMethod"
                                     value={contactMethod}
@@ -83,7 +75,7 @@ const BookingForm = (props) => {
                             </div>
                             {contactMethod === "email" ? (
                                 <div>
-                                    <label htmlFor="email">Email<span className="required">*</span></label>
+                                    <label htmlFor="email">Email <span className="required">*</span></label>
                                     <input
                                         type="email"
                                         id="email"
@@ -96,7 +88,7 @@ const BookingForm = (props) => {
                             ) :
                             contactMethod === "phone" ? (
                                 <div>
-                                    <label htmlFor="phone">Phone Number<span className="required">*</span></label>
+                                    <label htmlFor="phone">Phone Number <span className="required">*</span></label>
                                     <input
                                         type="tel"
                                         id="phone"
@@ -111,7 +103,7 @@ const BookingForm = (props) => {
                         </div>
                         <div className="rows">
                             <div>
-                                <label htmlFor="date">Choose Date<span className="required">*</span></label>
+                                <label htmlFor="date">Choose Date <span className="required">*</span></label>
                                 <input
                                     id="date"
                                     type="date"
@@ -121,7 +113,7 @@ const BookingForm = (props) => {
                                 />
                             </div>
                             <div>
-                                <label htmlFor="time">Choose Time<span className="required">*</span></label>
+                                <label htmlFor="time">Choose Time <span className="required">*</span></label>
                                 <select id="time" value={time} onChange={(e) => setTime(e.target.value)} required>
                                     <option></option>
                                     {props.availableTimes.map(availableTime => (
@@ -132,7 +124,7 @@ const BookingForm = (props) => {
                         </div>
                         <div className="rows">
                             <div>
-                                <label htmlFor="guest">Number of Guests<span className="required">*</span></label>
+                                <label htmlFor="guest">Number of Guests <span className="required">*</span></label>
                                 <input
                                     id="guest"
                                     type="number"
@@ -143,14 +135,15 @@ const BookingForm = (props) => {
                                 />
                             </div>
                             <div>
-                                <label htmlFor="occasion">Occasion<span className="required">*</span></label>
+                                <label htmlFor="occasion">Occasion <span className="required">*</span></label>
                                 <select
                                     id="occasion"
                                     value={occasion}
                                     onChange={(e) => setOccasion(e.target.value)}
                                     required
                                 >
-                                    <option value="">None</option>
+                                    <option value=""></option>
+                                    <option value="None">None</option>
                                     <option value="Birthday">Birthday</option>
                                     <option value="Engagement">Engagement</option>
                                     <option value="Anniversary">Anniversary</option>
@@ -159,15 +152,31 @@ const BookingForm = (props) => {
                         </div>
                         <div>
                             <label htmlFor="notes">Additional Notes</label>
-                            <textarea id="notes" name="notes" />
+                            <textarea id="notes" name="notes" placeholder="(Optional)" />
                         </div>
                     </fieldset>
                     <div id="submitBtn">
-                        <input aria-label="On Click" type="submit" className="submitBtn" value="Reserve Table" />
+                        <button
+                            aria-label="On Click"
+                            type="submit"
+                            className="submitBtn"
+                            disabled={
+                                !firstName ||
+                                !lastName ||
+                                !contactMethod ||
+                                !contactInfo ||
+                                !date ||
+                                !time ||
+                                !guest ||
+                                !occasion
+                            }
+                        >
+                            Reserve Table
+                        </button>
                     </div>
                 </form>
             </section>
-        </header>
+        </main>
     );
 };
 

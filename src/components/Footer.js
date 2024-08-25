@@ -1,19 +1,28 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate, useLocation} from 'react-router-dom';
 import logo_alt from '../images/Asset 20@4x.png';
 
-const handleClick = (anchor) => () => {
-    const id = `${anchor}-section`;
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-}
-
 const Footer = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const handleClick = (anchor) => (e) => {
+        e.preventDefault();
+        if (location.path === "/") {
+            const id = `${anchor}-section`;
+            const element = document.getElementById(id);
+
+            if (element) {
+                element.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                });
+            }
+        } else {
+            navigate("/", {state: {scrollTo: anchor}});
+        }
+    };
+
     return (
         <footer>
             <section>
@@ -24,7 +33,7 @@ const Footer = () => {
                     <h3>Navigation</h3>
                     <ul>
                         <li>
-                            <a href="/">Home</a>
+                            <a href="/" >Home</a>
                         </li>
                         <li>
                             <Link to="#about" onClick={handleClick("about")}>About</Link>

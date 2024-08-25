@@ -29,11 +29,11 @@ const Highlights = () => {
     ]
 
     return (
-        <div className="highlights">
-            <div className="highlights-heading">
+        <main className="highlights">
+            <header className="highlights-heading">
                 <h1>This weeks specials!</h1>
                 <button className="altBtn">Online Menu</button>
-            </div>
+            </header>
             <div className="highlights-content">
                 {
                     specials.map((item) => (
@@ -51,7 +51,7 @@ const Highlights = () => {
                     ))
                 }
             </div>
-        </div>
+        </main>
     );
 };
 

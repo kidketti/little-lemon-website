@@ -1,5 +1,5 @@
-import React, {useReducer} from 'react';
-import {Route, Routes, useNavigate} from 'react-router-dom';
+import React, {useEffect, useReducer} from 'react';
+import {Route, Routes, useNavigate, useLocation} from 'react-router-dom';
 import Booking from './Booking';
 import HomePage from './HomePage';
 import ConfirmedBooking from './ConfirmedBooking';
@@ -37,12 +37,24 @@ const Main = () => {
     const updateTimes = (state, action) => fetchAPI(new Date(action));
     const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes);
     const navigate = useNavigate();
+    const location = useLocation();
 
     const submitForm = (formData) =>  {
         if (submitAPI(formData)) {
             navigate("/confirmed");
         }
     };
+
+    useEffect(() => {
+        if(location.state?.scrollTo){
+            const id = `${location.state.scrollTo}-section`;
+            const element = document.getElementById(id);
+
+            if (element) {
+                element.scrollIntoView({behavior: 'smooth'});
+            }
+        }
+    }, [location.state]);
 
     return (
         <main>

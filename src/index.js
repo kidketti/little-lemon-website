@@ -2,13 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import BookingPage from './components/BookingPage';
-import HomePage from './components/HomePage';
-import Main from './components/Main';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom';
+import Top from './components/Top';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -23,6 +21,7 @@ root.render(
       <meta property="og:description" content="Little Lemon is a family-owned Mediterranean restaurant, focused on traditional recipes served with a modern twist." />
       <meta property="og:locale" content="en_US" />
       <meta property="og:site_name" content="Little Lemon" />
+      <Top />
       <Nav />
       <App />
       <Footer />

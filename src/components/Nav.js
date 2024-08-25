@@ -1,24 +1,30 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate, useLocation} from 'react-router-dom';
 import logo from '../images/Logo .svg';
 import hamburger from '../images/icon _hamburger menu.svg';
 
-const handleClick = (anchor) => () => {
-    const id = `${anchor}-section`;
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-}
-
 const Nav = () => {
     const [navDisplay, setNavDisplay] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const showNav = () => {
         setNavDisplay(!navDisplay);
+    }
+    const handleClick = (anchor) => () => {
+        const id = `${anchor}-section`;
+        const element = document.getElementById(id);
+
+        if (location.pathname === "/") {
+            if (element) {
+                element.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                });
+            }
+        } else {
+            navigate("/", {state: {scrollTo: anchor}});
+        }
     }
 
     return (
